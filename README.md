@@ -1,4 +1,10 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Docker Next
+
+- https://gist.github.com/capywebformation/734800fc270773e816c67a708dfb9a74
+
+## init docker
+
+`$ docker-compose up -d --build`
 
 ## Getting Started
 
