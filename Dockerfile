@@ -1,5 +1,6 @@
 # pull official base image
 FROM node:14.15.4-alpine3.10
+LABEL maintainer "iGhz <ghezal-ilies@outlook.fr>"
 
 # set working directory
 WORKDIR /home/node/app
@@ -9,7 +10,7 @@ ENV PATH /node_modules/.bin:$PATH
 
 # install app dependencies
 COPY ./package.json ./
-COPY ./yarn.lock ./
+# COPY ./yarn.lock ./
 RUN yarn install 
 
 # add app
