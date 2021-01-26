@@ -3,8 +3,10 @@ services:
   node:
     build: .
     volumes:
-      - ./:/home/node/app
-      - ./node_modules
+      - ./:/usr/src/app
+      # - ./node_modules
+      - /usr/src/app/node_modules
+      - /usr/src/app/.next
     ports:
       - '3000:3000'
  

@@ -1,20 +1,22 @@
 # pull official base image
 FROM node:14.15.4-alpine3.10
-LABEL maintainer "iGhz <ghezal-ilies@outlook.fr>"
+# LABEL maintainer "iGhz <ghezal-ilies@outlook.fr>"
 
 # set working directory
-WORKDIR /home/node/app
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
 
 # add `/node_modules/.bin` to $PATH
 ENV PATH /node_modules/.bin:$PATH
 
 # install app dependencies
-COPY ./package.json ./
+COPY package*.json /usr/src/app/
+
 # COPY ./yarn.lock ./
-RUN yarn install 
+RUN yarn install && yarn cache clean
 
 # add app
-COPY . ./
+COPY . /usr/src/app
 
 # start app
 CMD ["yarn", "dev"]
