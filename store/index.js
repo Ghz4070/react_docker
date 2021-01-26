@@ -5,17 +5,17 @@ import storage from "./config/storage";
 import thunk from "redux-thunk";
 
 import auth from "./reducers/auth";
-import projects from "./reducers/projects";
+import forms from "./reducers/forms";
 
 const mainReducers = combineReducers({
   auth,
-  projects,
+  forms,
 });
 
 const persistConfig = {
   key: "root",
   storage,
-  whitelist: ["auth", "projects"],
+  whitelist: ["auth", "forms"],
   blacklist: [],
 };
 
