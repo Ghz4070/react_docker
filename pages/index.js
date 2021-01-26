@@ -19,19 +19,19 @@ const useStyles = makeStyles((theme) => ({
     height: "100%",
     position: "fixed",
     background: "#95a5a6",
+    justifyContent: "center",
   },
   displayLogo: {
+    justifyContent: "center",
     marginTop: "10%",
   },
   textField: {
-    display: "flex",
     marginBottom: theme.spacing(3),
   },
   fontColor: {
     textAlign: "center",
     color: "black",
     marginBottom: theme.spacing(3),
-    fontSize: 20,
   },
   fontColorAdmin: {
     textDecoration: "underline",
@@ -39,7 +39,6 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "center",
     color: "black",
     margin: 40,
-    fontSize: 20,
   },
   iconDocker: {
     textAlign: "center",
@@ -59,7 +58,7 @@ const Home = () => {
   return (
     <>
       <Grid className={classes.rootContainer}>
-        <Grid container justify="center" className={classes.displayLogo}>
+        <Grid container className={classes.displayLogo}>
           <FontAwesomeIcon
             icon={["fab", "docker"]}
             className={classes.iconDocker}
@@ -69,31 +68,30 @@ const Home = () => {
             className={classes.iconDocker}
           />
         </Grid>
-        <Grid container justify="center">
-          <Typography variant="p" className={classes.fontColor}>
-            Bienvenu sur App for Voting
-          </Typography>
-          <Grid container justify="center">
-            <Paper elevation={3} justify="center" className={classes.paper}>
+
+        <Typography variant="h2" className={classes.fontColor}>
+          Bienvenu sur App for Voting
+        </Typography>
+        <Grid style={{ display: "flex", justifyContent: "center" }}>
+          <Paper elevation={3} className={classes.paper}>
+            <Grid>
               <TextField
                 className={classes.textField}
                 label="Votre nom ?"
                 variant="outlined"
               />
-              <Button
-                variant="outlined"
-                color="primary"
-                className={classes.textField}
-              >
+            </Grid>
+            <Grid>
+              <Button variant="outlined" color="primary">
                 Primary
               </Button>
-            </Paper>
-          </Grid>
+            </Grid>
+          </Paper>
         </Grid>
 
         <Grid container justify="center">
           <Link href="/security/admin/login" as="/admin">
-            <Typography variant="p" className={classes.fontColorAdmin}>
+            <Typography variant="h5" className={classes.fontColorAdmin}>
               Vous etes admin ?
             </Typography>
           </Link>

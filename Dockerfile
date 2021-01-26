@@ -11,7 +11,7 @@ ENV PATH /node_modules/.bin:$PATH
 # install app dependencies
 COPY ./package.json ./
 # COPY ./yarn.lock ./
-RUN yarn install 
+RUN yarn cache clean && yarn install --network-timeout 100000
 
 # add app
 COPY . ./
