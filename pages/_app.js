@@ -3,15 +3,23 @@ import { ThemeProvider, NoSsr } from "@material-ui/core";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import theme from "../themes/theme";
 import App from "next/app";
+import { Provider } from "react-redux";
+import { PersistGate } from "redux-persist/integration/react";
+import storeRoot from "../store";
 
+const { store, persistor } = storeRoot();
 function MyApp({ Component, pageProps }) {
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <NoSsr>
-        <Component {...pageProps} />
-      </NoSsr>
-    </ThemeProvider>
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+          <NoSsr>
+            <Component {...pageProps} />
+          </NoSsr>
+        </ThemeProvider>
+      </PersistGate>
+    </Provider>
   );
 }
 

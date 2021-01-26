@@ -1,10 +1,17 @@
 import React from "react";
 import Document, { Html, Head, Main, NextScript } from "next/document";
-
+import { ServerStyleSheet } from "styled-components";
 export default class MyDocument extends Document {
   static getInitialProps({ renderPage, ...rest }) {
-    const page = renderPage();
-    return { ...page };
+    const sheet = new ServerStyleSheet();
+
+    const page = renderPage((App) => (props) =>
+      sheet.collectStyles(<App {...props} />)
+    );
+
+    const styleTags = sheet.getStyleElement();
+
+    return { ...page, styleTags };
   }
 
   render() {
@@ -29,6 +36,8 @@ export default class MyDocument extends Document {
             src="https://unpkg.com/react-bootstrap@next/dist/react-bootstrap.min.js"
             crossOrigin="true"
           ></script>
+
+          {this.props.styleTags}
         </Head>
         <body>
           <Main />
