@@ -1,65 +1,104 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import React from "react";
+import {
+  makeStyles,
+  Grid,
+  Typography,
+  Paper,
+  TextField,
+  Button,
+} from "@material-ui/core";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { fab, faDocker, faReact } from "@fortawesome/free-brands-svg-icons";
+library.add(fab, faDocker, faReact);
+import Link from "next/link";
 
-export default function Home() {
+const useStyles = makeStyles((theme) => ({
+  rootContainer: {
+    width: "100%",
+    height: "100%",
+    position: "fixed",
+    background: "#95a5a6",
+    justifyContent: "center",
+  },
+  displayLogo: {
+    justifyContent: "center",
+    marginTop: "10%",
+  },
+  textField: {
+    marginBottom: theme.spacing(3),
+  },
+  fontColor: {
+    textAlign: "center",
+    color: "black",
+    marginBottom: theme.spacing(3),
+  },
+  fontColorAdmin: {
+    textDecoration: "underline",
+    cursor: "pointer",
+    textAlign: "center",
+    color: "black",
+    margin: 40,
+  },
+  iconDocker: {
+    textAlign: "center",
+    color: "#3498db",
+    fontSize: 100,
+    marginRight: 25,
+  },
+  paper: {
+    width: "50%",
+    padding: theme.spacing(5),
+  },
+}));
+
+const Home = () => {
+  const classes = useStyles();
+
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    <>
+      <Grid className={classes.rootContainer}>
+        <Grid container className={classes.displayLogo}>
+          <FontAwesomeIcon
+            icon={["fab", "docker"]}
+            className={classes.iconDocker}
+          />
+          <FontAwesomeIcon
+            icon={["fab", "react"]}
+            className={classes.iconDocker}
+          />
+        </Grid>
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
+        <Typography variant="h2" className={classes.fontColor}>
+          Bienvenu sur App for Voting
+        </Typography>
+        <Grid style={{ display: "flex", justifyContent: "center" }}>
+          <Paper elevation={3} className={classes.paper}>
+            <Grid>
+              <TextField
+                className={classes.textField}
+                label="Votre nom ?"
+                variant="outlined"
+              />
+            </Grid>
+            <Grid>
+              <Button variant="outlined" color="primary">
+                Primary
+              </Button>
+            </Grid>
+          </Paper>
+        </Grid>
 
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
+        <Grid container justify="center">
+          <Link href="/security/admin/login" as="/admin">
+            <Typography variant="h5" className={classes.fontColorAdmin}>
+              Vous etes admin ?
+            </Typography>
+          </Link>
+        </Grid>
+      </Grid>
+    </>
+  );
+};
 
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
-    </div>
-  )
-}
+export default Home;

@@ -1,40 +1,75 @@
-# Docker Next
+# Voting app: Dockerize app for voting
 
-- https://gist.github.com/capywebformation/734800fc270773e816c67a708dfb9a74
+### Principal contributors :
 
-## init docker
+[Ilies][ilies]
+[ilies]: https://github.com/Ghz4070/react_docker/tree/main
 
-`$ docker-compose up -d --build`
+### tap `make` for all command for begin project
 
-## Getting Started
+---
 
-First, run the development server:
+## TP
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+- :heavy_check_mark: Create a application in order to vote students projects.
+- :heavy_check_mark: Create a development environment for the project.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Frontend quick definition:
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+- Admin can choose to add or remove questions for every project.
+- Admin can enter project name somewhere.
+- Admin cannot change vote option (1 to 10, with 0,5 increase).
+  **Example** - 0 - 0.5 - 1 - 1.5 etc ...
+- Not necessary backoffice for admin, it can be a configuration file only for questions, project names.
+- Export results with a command (makefile)
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+**Example for a voting user:**
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+> - Vue 1: Enter your name (no connexion).
 
-## Learn More
+> - Vue 2:
+>   Project name: Dentiio
+>
+> Question 1: Interested into following ?
+> Vote 1 to 10.
+> Button > Next Question
+>
+> Question 2: Interested into sponsoring ?
+> Vote 1 to 10.  
+> Submit button.
 
-To learn more about Next.js, take a look at the following resources:
+> - Vue 2:
+>   Project name: Hubbies Puppies
+>
+> Question 1: Interested into following ?
+> Vote 1 to 10.
+> Button > Next Question
+>
+> Question 2: Interested into sponsoring ?
+> Vote 1 to 10.  
+> Submit button.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+> - Vue 3: Thank you.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## :red_circle: Obligations
 
-## Deploy on Vercel
+- :octocat: Github Flow (PR mandatory).
+- :open_book: Respect Github open source guidelines.
+- :wavy_dash: Comment each line of the Dockerfile or docker-compose files.
+- :100: Complete README to initialize the project.
+- :lock: Use only official Docker Hub images and lock versions of your images.
+- :no_entry: Mandatory services :
+  - Language interpretor
+  - Database
+  - Apache or Nginx
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## :gift: Bonus:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- :sob: Add unit testing to your app (TDD).
+- :sob: Add a command to launch your tests inside containers.
+- :outbox_tray: Create a prod environment for the project
+- :scream: Push your docker on a vps or on heroku
+- :muscle: Services :
+  - Testing email service (MailHog)
+  - Proxy (Traefik)
+  - SSL certificat (Let's Encrypt) :warning: you need a domain name
