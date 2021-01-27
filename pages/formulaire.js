@@ -14,6 +14,7 @@ const useStyles = makeStyles((theme) => ({
     position: "fixed",
     background: "#95a5a6",
     justifyContent: "center",
+    overflow: "scroll",
   },
   fontColor: {
     textAlign: "center",
@@ -52,7 +53,7 @@ const Formulaire = () => {
         <Button
           variant="outlined"
           color="primary"
-          style={{ marginTop: 20, width: "40%" }}
+          style={{ marginBottom: 50, marginTop: 20, width: "40%" }}
           onClick={() => resetUser()}
         >
           Revenir a l'accueil

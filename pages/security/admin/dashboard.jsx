@@ -5,7 +5,7 @@ import Table from "../../../components/molecules/Table/Table";
 import { useDispatch, useSelector } from "react-redux";
 import { actionResetUser } from "../../../store/actions/auth";
 import { useRouter } from "next/router";
-import { CSVLink, CSVDownload } from "react-csv";
+import { CSVLink } from "react-csv";
 
 const useStyles = makeStyles((theme) => ({
   rootContainer: {
