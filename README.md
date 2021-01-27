@@ -6,6 +6,14 @@
 [ilies]: https://github.com/Ghz4070/react_docker/tree/main
 
 ### tap `make` for all command for begin project
+	- make build 
+	- make start
+	or
+	- make help
+	
+### Identifier admin : 
+	- admin@admin.com
+	- adminadmin
 
 ---
 
