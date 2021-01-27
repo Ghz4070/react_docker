@@ -28,11 +28,17 @@ const ChooseAndVotingForm = ({ nameUser }) => {
   const classes = useStyles();
 
   return (
-    <Grid container spacing={3}>
+    <Grid container justify="space-between">
       {formations.map((formation, index) => {
         return (
-          <Grid key={index} item xs={12}>
-            <Paper elevation={3} className={classes.paper}>
+          <Grid
+            container
+            justify="center"
+            key={index}
+            xs={12}
+            style={{ marginBottom: 20 }}
+          >
+            <Paper elevation={5} className={classes.paper}>
               <Typography component="legend">
                 Formation {formation.name} for {formation.days}
               </Typography>
