@@ -3,8 +3,9 @@ services:
   node:
     build: .
     volumes:
-      - ./:/usr/src/app
+      - .:/usr/src/app
       - /usr/src/app/node_modules
+      - /usr/src/app/yarn.lock
       - /usr/src/app/.next
     ports:
       - '3000:3000'
