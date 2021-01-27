@@ -11,6 +11,7 @@ const useStyles = makeStyles((theme) => ({
     position: "fixed",
     background: "#95a5a6",
     justifyContent: "center",
+    overflow: "scroll",
   },
   textField: {
     marginBottom: theme.spacing(3),
