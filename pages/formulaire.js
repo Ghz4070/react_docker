@@ -31,10 +31,9 @@ const Formulaire = () => {
 
   const resetUser = () => {
     dispatch(actionResetUserTemporary());
-    router.push("/");
   };
 
-  if (nameTemporary === "") return router.push("/");
+  if (!nameTemporary) router.push("/");
 
   return (
     <Grid className={classes.rootContainer}>
@@ -47,17 +46,18 @@ const Formulaire = () => {
       <Typography variant="h5" className={classes.fontColor}>
         {nameTemporary}
       </Typography>
+      <Grid container justify="center">
+        <ChooseAndVotingForm nameUser={nameTemporary} />
 
-      <ChooseAndVotingForm nameUser={nameTemporary} />
-
-      <Button
-        variant="outlined"
-        color="primary"
-        style={{ marginTop: 20, width: "40%" }}
-        onClick={() => resetUser()}
-      >
-        Revenir a l'accueil
-      </Button>
+        <Button
+          variant="outlined"
+          color="primary"
+          style={{ marginTop: 20, width: "40%" }}
+          onClick={() => resetUser()}
+        >
+          Revenir a l'accueil
+        </Button>
+      </Grid>
     </Grid>
   );
 };
