@@ -1,6 +1,6 @@
 import React from "react";
 import StarBorderIcon from "@material-ui/icons/StarBorder";
-import Rating from "@material-ui/lab/Rating";
+import Rating from "react-rating";
 import { actionSetForms } from "../../../store/actions/forms";
 import { useDispatch } from "react-redux";
 
@@ -8,19 +8,16 @@ const RatingCustom = ({ nameFormation, nameUser }) => {
   const dispatch = useDispatch();
 
   const handleChange = (name, rating, formation) => {
-    dispatch(actionSetForms({ name, formation, rating }));
+    console.log({ name, rating, formation });
+    dispatch(actionSetForms({ name, rating, formation }));
   };
 
   return (
     <Rating
-      name="rating"
-      size="large"
-      max={10}
-      precision={0.5}
-      emptyIcon={<StarBorderIcon fontSize="inherit" />}
-      onChange={(event) =>
-        handleChange(nameUser, nameFormation, +event.target.defaultValue)
-      }
+      step={1}
+      stop={10}
+      fractions={2}
+      onChange={(value) => handleChange(nameUser, +value, nameFormation)}
     />
   );
 };
