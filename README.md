@@ -11,6 +11,15 @@
 	or
 	- make help
 	
+### Want to have node_modules on host side ? 
+This will copy node modules inside a the running container to the host
+- Run `make modules`
+
+### Want to have yarn.lock on host side ? 
+This will check and install missing dependencies and copy yarn.lock file from the running container to the host:
+- Run `make yarnlock`
+
+
 ### Identifier admin : 
 	- admin@admin.com
 	- adminadmin

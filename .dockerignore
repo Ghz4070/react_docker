@@ -1,6 +1,7 @@
-# node_modules
-# build
-# .dockerignore
-# Dockerfile
+node_modules
+yarn.lock
+build
+.dockerignore
+Dockerfile
 .git
 .gitignore
